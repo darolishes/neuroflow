@@ -10,9 +10,9 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
-import { LoginForm } from "@/components/login-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
 
 /**
  * Login page component
@@ -151,18 +151,27 @@ export default function LoginPage() {
 
   return (
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
-      <LoginForm className="w-full max-w-[800px]">
-        {/* Override the form part of the LoginForm component with our custom form */}
-        {React.cloneElement(
-          LoginForm({}).props.children, 
-          {}, 
-          React.cloneElement(
-            LoginForm({}).props.children.props.children[0], 
-            {}, 
-            CustomLoginForm
-          )
-        )}
-      </LoginForm>
+      <div className="flex flex-col gap-6 w-full max-w-[800px]">
+        <Card className="overflow-hidden">
+          <CardContent className="grid p-0 md:grid-cols-2">
+            {/* Our custom form */}
+            {CustomLoginForm}
+            
+            {/* Right side image section */}
+            <div className="relative hidden bg-muted md:block">
+              <img
+                src="/placeholder.svg"
+                alt="Login background"
+                className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              />
+            </div>
+          </CardContent>
+        </Card>
+        <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
+          By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+          and <a href="#">Privacy Policy</a>.
+        </div>
+      </div>
     </div>
   );
 }
