@@ -36,11 +36,11 @@ Story Points: 2
    4. - [ ] Implement "Remember me" functionality
    5. - [x] Add error handling and user feedback
 
-3. - [ ] Password Recovery
-   1. - [ ] Implement password reset request form
-   2. - [ ] Create password reset confirmation page
-   3. - [ ] Implement email-based password reset flow
-   4. - [ ] Add error handling and user feedback
+3. - [x] Password Recovery
+   1. - [x] Implement password reset request form
+   2. - [x] Create password reset confirmation page
+   3. - [x] Implement email-based password reset flow
+   4. - [x] Add error handling and user feedback
 
 4. - [ ] User Profile Management
    1. - [ ] Create user profile page
@@ -136,3 +136,5 @@ graph TD
 - Implemented login page with ShadcnUI login-04 block
 - Connected login form to Supabase authentication
 - Added loading states and error handling
+- Created forgot-password and reset-password pages
+- Implemented password reset flow using Supabase Auth
