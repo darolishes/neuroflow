@@ -1,0 +1,52 @@
+---
+description: USE ALWAYS when writing or modifying TypeScript files to ensure consistent documentation standards
+globs: src/**/*.{ts,tsx}
+---
+## Requirements
+
+<critical-rules>
+- Each file must begin with a JSDoc comment describing its purpose
+- All interfaces and types must have JSDoc comments
+- All exported functions must have JSDoc comments
+- Avoid redundant comments that merely restate the code
+- Document "why" rather than "what" when possible
+- React components must also have JSDoc comments
+</critical-rules>
+
+<example>
+/**
+ * @module UserManagement
+ * Handles user authentication and profile management
+ */
+
+/**
+ * User profile with an optional biography
+ * @interface
+ */
+interface UserProfile {
+  id: string;
+  name: string;
+  bio?: string;
+}
+
+/**
+ * Fetches user profile from the database
+ * @param {string} userId - The user's unique identifier
+ * @returns {Promise<UserProfile>} The user's profile data
+ * @throws {Error} When user is not found
+ */
+export async function getUserProfile(userId: string): Promise<UserProfile> {
+  // Implementation
+}
+</example>
+
+<example type="invalid">
+interface User {
+  id: string; // the id
+  name: string; // the name
+}
+
+export function getUser(id) {
+  return fetch(`/api/users/${id}`);
+}
+</example>

@@ -1,0 +1,17 @@
+---
+description: Always follow these styles and rules for creating or editing typescript filee
+globs: **/*.{ts,tsx}
+---
+<critical-rules>
+- NEVER use any
+- Utilize ENUMS to define a set of named constants and define standards
+- Use Interfaces for custom types
+- Extend and Reuse interfaces where possible to avoid dupication
+- Follow these naming conventions:
+  -- Use camelCase for variable and function names
+  -- Use PascalCase for class names and interface names
+  -- Use camelCase for interface members
+  -- Use PascalCase for type names and enum names
+  -- Name files with camelCase
+- Follow project configured prettier and eslint conventions.
+</critical-rules>

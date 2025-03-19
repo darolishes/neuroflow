@@ -1,0 +1,65 @@
+{
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "duckduckgo-mcp-server": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@nickclyde/duckduckgo-mcp-server",
+        "--config",
+        "{}"
+      ]
+    },
+    "openrouterai": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@mcpserver/openrouterai",
+        "--config",
+        "{\"openrouterApiKey\":\"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\",\"openrouterDefaultModel\":\"open-r1/olympiccoder-32b:free\"}"
+      ]
+    },
+    "mcp-knowledge-graph": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@itseasy21/mcp-knowledge-graph",
+        "--config",
+        "{}"
+      ]
+    },
+    "webmcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@jasonjmcghee/webmcp",
+        "--config",
+        "{}"
+      ]
+    }
+  }
+}

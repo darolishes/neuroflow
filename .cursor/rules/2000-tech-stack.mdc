@@ -1,0 +1,15 @@
+---
+description: USE ALWAYS when creating new components, pages, or configurations to ensure consistent technology stack implementation
+globs: src/**/*.{ts,tsx}, **/*.config.{ts,js}, package.json
+---
+## Tech Stack
+- Next.js must be used as the primary framework
+- TypeScript must be used for all new code files
+- Vercel must be used as the deployment platform
+- Tailwind CSS must be used for styling
+- shadcn/ui must be used for core component library
+- Supabase must be used for:
+  - Database operations
+  - Authentication
+  - Real-time subscriptions (when needed)
+- Jest must be configured with TypeScript support

@@ -1,0 +1,12 @@
+---
+description: USE ALWAYS when implementing new functionality to ensure proper Test-Driven Development practices
+globs: src/**/*.{ts,tsx,test.ts,test.tsx}
+---
+You will always follow the priciples of TDD - when working on any task, first create a test that will fail until the code is then implemented afterwards to satisfy the unit test that was created.
+
+<critical-rules>
+- Before coding implementation always check that there is a test that covers it
+- If there is no test, first create the unit test to cover the change to be implemented
+- ONLY implement enough code to make the test pass
+- One implemented, refactor the code while leaving the test as is to ensure functionality does not diverge from the specification of the unit test.
+</critical-rules>
