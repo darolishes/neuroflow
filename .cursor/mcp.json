@@ -1,19 +1,12 @@
 {
   "mcpServers": {
     "sequential-thinking": {
-      "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "duckduckgo-mcp-server": {
-      "command": "cmd",
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
         "-y",
         "@smithery/cli@latest",
         "run",
@@ -23,10 +16,8 @@
       ]
     },
     "openrouterai": {
-      "command": "cmd",
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
         "-y",
         "@smithery/cli@latest",
         "run",
@@ -36,10 +27,8 @@
       ]
     },
     "mcp-knowledge-graph": {
-      "command": "cmd",
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
         "-y",
         "@smithery/cli@latest",
         "run",
@@ -49,10 +38,8 @@
       ]
     },
     "webmcp": {
-      "command": "cmd",
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
         "-y",
         "@smithery/cli@latest",
         "run",

@@ -9,7 +9,7 @@
 
 ## Status
 
-Draft
+Approved
 
 ## Context
 
@@ -33,20 +33,13 @@ Story Points: 2
    1. - [x] Utilize ShadcnUI login-04 block as the foundation
    2. - [x] Customize the login form to match application branding
    3. - [x] Connect to Supabase authentication
-   4. - [ ] Implement "Remember me" functionality
-   5. - [x] Add error handling and user feedback
+   4. - [x] Add error handling and user feedback
 
 3. - [x] Password Recovery
    1. - [x] Implement password reset request form
    2. - [x] Create password reset confirmation page
    3. - [x] Implement email-based password reset flow
    4. - [x] Add error handling and user feedback
-
-4. - [ ] User Profile Management
-   1. - [ ] Create user profile page
-   2. - [ ] Implement profile update functionality
-   3. - [ ] Add password change feature
-   4. - [ ] Create profile avatar uploads with Supabase Storage
 
 ## Constraints
 
@@ -94,6 +87,7 @@ The authentication system will build upon the existing structure:
   - `/auth/login` - Login page
   - `/auth/forgot-password` - Password recovery request
   - `/auth/reset-password` - Password reset confirmation
+  - `/auth/callback` - OAuth callback handler
 - `/src/components/` - Authentication-related components
   - `login-form.tsx` - Login form component used across the app
 - `/src/contexts/AuthContext.tsx` - Auth state management
@@ -112,9 +106,6 @@ graph TD
     D --> |Forgot Password| G[Password Reset]
     G --> D
     F --> H[Protected Routes]
-    H --> I[User Profile]
-    I --> J[Update Profile]
-    I --> K[Change Password]
 ```
 
 ## Dev Notes
@@ -122,10 +113,10 @@ graph TD
 - The Project Starter Template already includes basic authentication with Supabase, but it needs to be enhanced with ADHD-friendly UI and additional features
 - ShadcnUI login-04 block has been installed using `npx shadcn@latest add login-04`
 - The login-04 block provides a modern, split-screen layout with social login options
-- The login form needs to be connected to Supabase authentication
 - Client-side validation will be implemented to provide immediate feedback to users
 - Error messages will be designed to be clear and non-distracting for users with ADHD
-- Social login options (Google, Apple) should be implemented to simplify the login process
+- Social login options (Google) have been implemented to simplify the login process
+- User Profile Management will be handled in a separate story
 
 ## Chat Command Log
 

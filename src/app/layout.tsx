@@ -1,15 +1,18 @@
 /**
  * @module RootLayout
- * @fileoverview Root layout component with authentication provider
+ * @fileoverview Root layout component with authentication provider and theme provider
  * @since 1.0.0
  */
 
 import { AuthProvider } from "@/contexts/AuthContext";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata = {
-  title: "BMad Starter App",
-  description: "A modern web application with authentication",
+  title: "ADHD Organizer",
+  description:
+    "A modern web application for ADHD organization and task management",
 };
 
 /**
@@ -22,9 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <AuthProvider>{children}</AuthProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen bg-background font-sans antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <AuthProvider>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
