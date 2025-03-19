@@ -30,10 +30,11 @@ Story Points: 2
    4. - [ ] Add error handling and user feedback
 
 2. - [ ] Enhance User Login
-   1. - [ ] Implement login form with ShadcnUI components
-   2. - [ ] Add client-side form validation
-   3. - [ ] Implement "Remember me" functionality
-   4. - [ ] Add error handling and user feedback
+   1. - [ ] Utilize ShadcnUI login-04 block as the foundation
+   2. - [ ] Customize the login form to match application branding
+   3. - [ ] Connect to Supabase authentication
+   4. - [ ] Implement "Remember me" functionality
+   5. - [ ] Add error handling and user feedback
 
 3. - [ ] Password Recovery
    1. - [ ] Implement password reset request form
@@ -121,11 +122,14 @@ graph TD
 ## Dev Notes
 
 - The Project Starter Template already includes basic authentication with Supabase, but it needs to be enhanced with ADHD-friendly UI and additional features
-- ShadcnUI components will be used for all forms to ensure consistent styling
+- ShadcnUI login-04 block has been installed using `npx shadcn@latest add login-04`
+- The login-04 block provides a modern, split-screen layout with social login options
+- The login form needs to be connected to Supabase authentication
 - Client-side validation will be implemented to provide immediate feedback to users
 - Error messages will be designed to be clear and non-distracting for users with ADHD
-- Consider implementing social login options in the future
+- Social login options (Google, Apple) should be implemented to simplify the login process
 
 ## Chat Command Log
 
-Initial creation of the story file.
+- Initial creation of the story file
+- Added ShadcnUI login-04 block using `npx shadcn@latest add login-04`
