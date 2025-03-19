@@ -202,8 +202,11 @@ erDiagram
 │   ├── app/               # Next.js app router entries
 │   │   ├── dashboard/     # Authenticated area
 │   │   │   └── components # Dashboard-specific components
-│   │   ├── login/         # Auth page
-│   │   ├── signup/        # Registration page
+│   │   ├── auth/          # Authentication pages
+│   │   │   ├── login/     # Login page
+│   │   │   ├── signup/    # Registration page
+│   │   │   ├── forgot-password/ # Password recovery
+│   │   │   └── reset-password/  # Password reset
 │   │   └── layout.tsx     # Root layout
 │   │
 │   ├── contexts/          # Global state management

@@ -55,7 +55,7 @@ export default function ResetPasswordPage() {
       await confirmPasswordReset(password)
       setIsSuccess(true)
       setTimeout(() => {
-        router.push("/login")
+        router.push("/auth/login")
       }, 3000)
     } catch (err) {
       console.error("Password reset error:", err)
@@ -96,7 +96,7 @@ export default function ResetPasswordPage() {
                   </div>
                 </div>
                 <Button asChild className="mt-2">
-                  <Link href="/forgot-password">Request New Link</Link>
+                  <Link href="/auth/forgot-password">Request New Link</Link>
                 </Button>
               </div>
             ) : (
@@ -140,7 +140,7 @@ export default function ResetPasswordPage() {
           </CardContent>
           <CardFooter className="flex flex-col">
             <div className="text-center text-sm mt-2">
-              <Link href="/login" className="underline underline-offset-4 hover:text-primary">
+              <Link href="/auth/login" className="underline underline-offset-4 hover:text-primary">
                 Back to login
               </Link>
             </div>

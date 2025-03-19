@@ -33,7 +33,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push("/login");
+      router.push("/auth/login");
     }
   }, [user, loading, router]);
 
@@ -70,11 +70,11 @@ export default function DashboardPage() {
   const handleSignOut = async () => {
     try {
       await signOut();
-      router.push("/login");
+      router.push("/auth/login");
     } catch (err: unknown) {
       console.error("Error signing out:", err);
       // Still redirect to login page even if there's an error
-      router.push("/login");
+      router.push("/auth/login");
     }
   };
 

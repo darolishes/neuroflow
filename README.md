@@ -1,54 +1,52 @@
-# Project Starter Template
+# ADHD Organizer
 
-A modern web application starter template built with Next.js, TypeScript, Tailwind CSS, and Supabase authentication.
+A modern web application designed to help individuals with ADHD organize their lives through intuitive task management, reminders, and personalized assistance.
 
-## Quick Start with clone-project.sh
+![ADHD Organizer](https://placeholder-for-app-screenshot.com/screenshot.png)
 
-To easily start a new project using this template, you can use the `clone-project.sh` (mac/linux) or the .bat version (windows) script. This script will guide you through the process of setting up a new project with the necessary configurations and files in place.
+## Overview
 
-### Usage
-
-1. Make the script executable:
-
-   ```bash
-   chmod +x scripts/clone-project.sh
-   ```
-
-2. Run the script:
-
-   ```bash
-   ./scripts/clone-project.sh
-   ```
-
-3. Follow the prompts to set up your new project.
+The ADHD Organizer is built with a focus on accessibility, simplicity, and effectiveness for users with ADHD. It provides a structured environment that helps users manage tasks, set reminders, and organize their daily activities in a way that accommodates ADHD-specific challenges.
 
 ## Features
 
-- **Full Authentication Flow**  
-  Integrated signup/login system with:
+### Core Features
 
-  - Email/password registration
-  - Secure password validation
-  - Email verification system
+- **Task Management System**
+  - Create, categorize, and prioritize tasks
+  - Visual progress tracking
+  - Flexible organization options
+
+- **Reminder System**
+  - Smart notifications
+  - Time-based and location-based reminders
+  - Gentle but effective prompting
+
+- **Focus Assistance**
+  - Pomodoro timer integration
+  - Distraction blocking suggestions
+  - Focus mode with minimalist UI
+
+### Technical Features
+
+- **Comprehensive Authentication System**
+  - Email/password registration and login
   - Google OAuth integration
-  - Protected route handling
+  - Secure password recovery flow
+  - Protected routes for authenticated content
+  - Organized auth pages in `/app/auth` directory
 
-- **Modern Next.js Architecture**
-
-  - App router implementation
-  - Server-side rendering (SSR) optimization
-  - Client-side navigation
+- **Modern Web Architecture**
+  - Next.js App Router for optimized routing
+  - Server-side rendering for performance
+  - TypeScript for type safety
   - Context API for state management
 
-- 🎨 Modern UI with Tailwind CSS
-- 📱 **Dynamic Dashboard**  
-  Post-login interface demonstrating:
-  - Environment configuration visibility
-  - Supabase database integration
-  - Real-time data fetching
-  - Responsive layout components
-  - Secure data handling
-  - Configuration management UI
+- **Responsive UI/UX**
+  - ADHD-friendly design principles
+  - Tailwind CSS for styling
+  - ShadcnUI component library
+  - Minimal visual distractions
 - 🔒 Protected routes
 - 🌍 Environment variable management
 - ✨ TypeScript support
@@ -193,110 +191,148 @@ src/
 - `npm run lint` - Run linting
 - `npm run test:coverage` - Run test coverage
 
+## Project Structure
+
+```
+├── .ai/                 # Project documentation and planning
+│   ├── arch.md          # Architecture documentation
+│   ├── prd.md           # Product requirements document
+│   └── story-*.story.md # User stories
+│
+├── src/
+│   ├── app/             # Next.js app router entries
+│   │   ├── auth/        # Authentication pages
+│   │   │   ├── login/   # Login page
+│   │   │   ├── signup/  # Registration page
+│   │   │   ├── forgot-password/ # Password recovery
+│   │   │   └── reset-password/  # Password reset
+│   │   ├── dashboard/   # Authenticated area
+│   │   └── layout.tsx   # Root layout
+│   │
+│   ├── components/      # Reusable components
+│   │   ├── ui/          # UI components from shadcn
+│   │   └── login-form.tsx # Login form component
+│   │
+│   ├── contexts/        # Global state management
+│   │   └── AuthContext.tsx # Authentication context
+│   │
+│   └── lib/             # Shared utilities
+│       └── supabase.ts  # Supabase client
+│
+└── public/              # Static assets
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn
+- Supabase account for backend services
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/darolishes/neuroflow.git
+   cd neuroflow
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+
+   Create a `.env.local` file in the root directory with the following variables:
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+### Authentication Setup
+
+The application uses Supabase Authentication. To set up:
+
+1. Create a Supabase project at [https://supabase.com](https://supabase.com)
+2. Enable Email/Password and Google OAuth providers in the Auth settings
+3. Configure password reset email templates in Supabase Auth settings
+4. Add your app's URL to the site URL list in Auth settings
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the application for production
+- `npm start` - Start the production server
+- `npm run lint` - Run linting
+- `npm run test` - Run tests
+- `npm run test:coverage` - Run test coverage
+
+### Development Workflow
+
+This project follows Test-Driven Development (TDD) principles:
+
+1. Write tests first
+2. Implement the minimum code to pass tests
+3. Refactor while maintaining passing tests
+
+All development tasks are tracked in the `.ai` directory as user stories.
+
 ## Deployment
 
 ### Deployment Options
 
-Choose your preferred hosting platform:
+#### Vercel (Recommended)
 
-### 1. Vercel (Recommended)
+The easiest way to deploy this application is using Vercel:
 
-#### One-Click Deployment
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fyour-repo-name)
-
-1. Click the "Deploy with Vercel" button above
-2. Sign in to Vercel (or create an account)
-3. Import your GitHub repository
-4. Add environment variables:
+1. Connect your GitHub repository to Vercel
+2. Configure the following environment variables:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-5. Click "Deploy"
+3. Deploy and get a production URL
+4. Add the production URL to Supabase Auth settings
 
-#### Manual Vercel Deployment
+## Architecture
 
-1. Push your code to a Git repository
-2. Import your project in Vercel
-3. Set up environment variables
-4. Deploy!
+The ADHD Organizer follows a modern web application architecture:
 
-### 2. AWS S3 Static Hosting
+- **Frontend**: Next.js with App Router, TypeScript, and Tailwind CSS
+- **Backend**: Supabase for authentication, database, and real-time features
+- **State Management**: React Context API for global state
+- **Authentication**: Supabase Auth with email/password and OAuth providers
+- **Styling**: Tailwind CSS with ShadcnUI components
 
-#### Prerequisites
+Detailed architecture documentation is available in the `.ai/arch.md` file.
 
-- AWS account
-- AWS CLI installed and configured
-- IAM user with S3 access
+## Roadmap
 
-#### Deployment Steps:
-
-1. Install required packages:
-
-```bash
-npm install
-```
-
-2. Build static export:
-
-```bash
-npm run build && npm run export
-```
-
-3. Create S3 bucket:
-
-```bash
-aws s3 mb s3://your-bucket-name --region your-region
-```
-
-4. Configure bucket for static hosting:
-
-```bash
-aws s3 website s3://your-bucket-name --index-document index.html --error-document error.html
-```
-
-5. Set bucket policy (replace bucket-name with your actual bucket name):
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadGetObject",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::your-bucket-name/*"
-    }
-  ]
-}
-```
-
-6. Deploy files:
-
-```bash
-aws s3 sync out/ s3://your-bucket-name --delete
-```
-
-7. Access your site at:
-   `http://your-bucket-name.s3-website-region.amazonaws.com`
-
-(Optional) For production use:
-
-- Add CloudFront CDN
-- Configure custom domain
-- Enable HTTPS
-
-## Customization
-
-- Update the title in `src/app/layout.tsx`
-- Modify the dashboard widgets in `src/app/dashboard/page.tsx`
-- Add new authentication providers in Supabase dashboard
-- Customize the UI using Tailwind CSS classes
+- [ ] Task management system
+- [ ] Reminder and notification system
+- [ ] Focus assistance tools
+- [ ] Mobile responsive design
+- [ ] Offline support
+- [ ] Data visualization for progress tracking
+- [ ] AI-powered task suggestions
 
 ## Contributing
 
-Feel free to submit issues and enhancement requests!
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License - feel free to use this template for your own projects!
+This project is licensed under the MIT License - see the LICENSE file for details.

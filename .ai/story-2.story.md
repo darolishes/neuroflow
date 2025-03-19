@@ -29,7 +29,7 @@ Story Points: 2
    3. - [ ] Implement server-side validation
    4. - [ ] Add error handling and user feedback
 
-2. - [ ] Enhance User Login
+2. - [x] Enhance User Login
    1. - [x] Utilize ShadcnUI login-04 block as the foundation
    2. - [x] Customize the login form to match application branding
    3. - [x] Connect to Supabase authentication
@@ -89,15 +89,13 @@ The authentication system will use the Supabase Auth schema, which includes:
 
 The authentication system will build upon the existing structure:
 
-- `/src/app/(auth)` - Authentication-related pages
-  - `/signup` - Registration page
-  - `/login` - Login page
-  - `/forgot-password` - Password recovery request
-  - `/reset-password` - Password reset confirmation
-- `/src/components/auth` - Authentication-related components
-  - `RegistrationForm.tsx`
-  - `LoginForm.tsx`
-  - `PasswordResetForm.tsx`
+- `/src/app/auth/` - Authentication-related pages
+  - `/auth/signup` - Registration page
+  - `/auth/login` - Login page
+  - `/auth/forgot-password` - Password recovery request
+  - `/auth/reset-password` - Password reset confirmation
+- `/src/components/` - Authentication-related components
+  - `login-form.tsx` - Login form component used across the app
 - `/src/contexts/AuthContext.tsx` - Auth state management
 - `/src/lib/auth.ts` - Authentication utilities
 
@@ -138,3 +136,6 @@ graph TD
 - Added loading states and error handling
 - Created forgot-password and reset-password pages
 - Implemented password reset flow using Supabase Auth
+- Refactored authentication pages into `/auth` directory structure
+- Updated all links and redirects to use the new auth paths
+- Removed duplicate pages and unused components
