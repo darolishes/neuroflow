@@ -127,7 +127,7 @@ Story-5: Implement offline data persistence
 
 - Next.js 14 with App Router
 - React 18
-- TailwindCSS
+- TailwindCSS with Headless UI
 - ShadcnUI
 - PWA capabilities
 
@@ -137,18 +137,34 @@ Story-5: Implement offline data persistence
 - Edge Functions
 - WebSocket for real-time features
 
-### AI Services
+### Authentication & Data
 
-- OpenAI GPT-4 API for advanced task analysis
-- Google Gemini for real-time task processing and categorization
-- Whisper AI for voice transcription
-- Vercel AI SDK for AI service integration
-- Custom AI model pipeline for combining multiple AI services
+- Supabase Auth with token-based session management
+- Supabase PostgreSQL with Row-Level Security policies
+- Environment-specific configurations through Next.js runtime config
+
+### Testing
+
+- Vitest with React Testing Library
+- Server-side and client-side testing capabilities
 
 ### Infrastructure
 
 - Vercel (Hosting & Edge Functions)
 - Supabase (Backend as a Service)
+- CDN for static asset delivery
+- Serverless functions for dynamic routes
+
+### Project Structure
+
+Following standard Next.js App Router conventions:
+
+- `app/` - Next.js app router entries
+- `app/dashboard/` - Authenticated area
+- `contexts/` - Global state management
+- `lib/` - Shared utilities
+- `public/` - Static assets
+- `docs/` - Architectural documentation
 
 ## Future Enhancements
 

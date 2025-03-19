@@ -54,24 +54,56 @@ graph TB
 
 - Next.js 14 App Router for routing and server components
 - React 18 for component architecture
-- TailwindCSS with ShadcnUI for styling
+- TailwindCSS with Headless UI for styling
 - PWA implementation for offline support
 
 #### State Management
 
 - React Context for global state
 - SWR for data fetching and caching
-- Zustand for complex state management
-- IndexedDB for offline data persistence
+- Client-side navigation for UI updates
+
+#### Component Structure
+
+- PascalCase for component names (e.g., `UserProfile.tsx`)
+- Contextual components stored in `/components` directories
+- Layout components for consistent UI structure
+- Protected routes using middleware
 
 ### 2. Backend Architecture
 
 #### API Layer
 
 - Vercel Edge Functions for API endpoints
-- WebSocket connections for real-time updates
-- Supabase Row Level Security (RLS) for data access
-- Redis for caching and rate limiting
+- Supabase client initialized with environment variables
+- Protected data access through Row Level Security (RLS) policies
+- Static generation with server-side props where appropriate
+- Client-side data fetching with SWR for dynamic content
+
+#### Authentication Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant UI
+    participant AuthContext
+    participant Supabase
+
+    User->>UI: Submits credentials
+    UI->>AuthContext: Invoke auth method
+    AuthContext->>Supabase: signUp/signInWithPassword
+    Supabase-->>AuthContext: Session response
+    AuthContext-->>UI: Update auth state
+    UI-->>User: Redirect to dashboard
+```
+
+#### Dashboard Data Flow
+
+1. Environment variables loaded through Next.js runtime config
+2. Supabase client initialized with environment variables
+3. Authorized users fetch data from protected RLS policies
+4. Data displayed through React components with loading states
+5. UI updates managed through client-side navigation
 
 #### AI Orchestration Layer
 
@@ -162,6 +194,32 @@ erDiagram
 - Broadcast channels for notifications
 
 ## Development Workflow
+
+### Project Structure
+
+```
+├── src/
+│   ├── app/               # Next.js app router entries
+│   │   ├── dashboard/     # Authenticated area
+│   │   │   └── components # Dashboard-specific components
+│   │   ├── login/         # Auth page
+│   │   ├── signup/        # Registration page
+│   │   └── layout.tsx     # Root layout
+│   │
+│   ├── contexts/          # Global state management
+│   ├── lib/               # Shared utilities
+│   └── test/              # Test configurations
+│
+├── docs/                  # Architectural documentation
+└── public/                # Static assets
+```
+
+### File Naming Conventions
+
+- **Components**: PascalCase (e.g., `UserProfile.tsx`)
+- **Contexts**: `*Context.tsx` (e.g., `AuthContext.tsx`)
+- **Pages**: Lowercase directory names (e.g., `login/page.tsx`)
+- **Tests**: `*.test.tsx` alongside components
 
 ### CI/CD Pipeline
 

@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/lib/supabase";
+import { UITest } from "@/components/ui-test";
+import { Button } from "@/components/ui/button";
 
 interface EnvInfo {
   NEXT_PUBLIC_SUPABASE_URL: string;
@@ -98,12 +100,12 @@ export default function DashboardPage() {
                   {user?.email}
                 </span>
               </div>
-              <button
+              <Button
                 onClick={handleSignOut}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                variant="destructive"
               >
                 Sign Out
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -263,6 +265,16 @@ export default function DashboardPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* ShadcnUI Test Component */}
+        <div className="bg-white overflow-hidden shadow rounded-lg mt-8">
+          <div className="px-4 py-5 sm:p-6">
+            <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
+              ShadcnUI Components Test
+            </h3>
+            <UITest />
           </div>
         </div>
       </main>

@@ -1,2 +1,5 @@
 # Project notes and templates
 xnotes/
+.next/
+node_modules/
+build
