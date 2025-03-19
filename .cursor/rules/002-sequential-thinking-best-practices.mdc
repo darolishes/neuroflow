@@ -1,0 +1,8 @@
+---
+description: Best practices for enabling sequential thinking
+globs: \*_/_.{ts,tsx,js,jsx}
+---
+
+- Enable sequential thinking in all tools
+- Apply sequential thinking multiple times throughout the process
+- Follow the .cursor/rules/{rule}.mdc file, even when set to "always"
