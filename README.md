@@ -38,8 +38,6 @@ The ADHD Organizer is built with a focus on accessibility, simplicity, and effec
   - Secure password recovery flow
   - Protected routes for authenticated content
   - Organized auth pages in `/app/auth` directory
-  - Detailed documentation in [Authentication System Documentation](./docs/authentication.md)
-  - Improvement roadmap in [Auth Roadmap](./docs/auth-roadmap.md)
 
 - **Modern Web Architecture**
 
@@ -174,6 +172,7 @@ npm run test:coverage
 src/
 ├── app/                    # Next.js app directory
 │   ├── auth/              # Auth-related routes
+│   ├── dashboard/         # Dashboard page with:
 │   │   ├── page.tsx      # - Env variable display
 │   │   └── components/    # - Supabase data visualization
 │   │       ├── ConfigCard.tsx  # App configuration display

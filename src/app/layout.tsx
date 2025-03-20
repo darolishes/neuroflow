@@ -4,10 +4,9 @@
  * @since 1.0.0
  */
 
-import { AuthProvider } from "@/contexts/AuthContext";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/navigation/navbar";
+import { Footer } from "@/components/navigation/footer";
 import "./globals.css";
 
 export const metadata = {
@@ -27,14 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <AuthProvider>
-            <Navbar />
-            <main className="container mx-auto px-4 py-8">{children}</main>
-            <Toaster />
-          </AuthProvider>
-        </ThemeProvider>
+      <body className="bg-background text-foreground">
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="container max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            {children}
+          </main>
+          <Footer />
+        </div>
+        <Toaster />
       </body>
     </html>
   );

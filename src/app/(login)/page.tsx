@@ -23,11 +23,8 @@ export default async function LoginPage({
         <div className="w-full max-w-sm space-y-8">
           <div>
             <h2 className="mt-6 text-3xl font-bold tracking-tight">
-              Welcome back
+              Sign in to your account
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Sign in to your account to continue
-            </p>
           </div>
           <AuthForm redirectTo={searchParams.redirectedFrom} />
         </div>
