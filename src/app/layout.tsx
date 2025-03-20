@@ -7,6 +7,7 @@
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Navbar } from "@/components/navigation/navbar";
 import "./globals.css";
 
 export const metadata = {
@@ -29,7 +30,8 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuthProvider>
-            {children}
+            <Navbar />
+            <main className="container mx-auto px-4 py-8">{children}</main>
             <Toaster />
           </AuthProvider>
         </ThemeProvider>
