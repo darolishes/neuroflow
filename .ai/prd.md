@@ -117,8 +117,8 @@ Epic-5: Focus Timer & Notifications (Future)
 
 Story-1: Set up Next.js project with Supabase integration
 Story-2: Implement user authentication system
-Story-3: Create database schema for user data
-Story-4: Set up secure API endpoints
+Story-3: Create user profile management
+Story-4: Enhance authentication security and UX based on review
 Story-5: Implement offline data persistence
 
 ## Tech Stack

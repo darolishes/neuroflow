@@ -13,11 +13,13 @@ The ADHD Organizer is built with a focus on accessibility, simplicity, and effec
 ### Core Features
 
 - **Task Management System**
+
   - Create, categorize, and prioritize tasks
   - Visual progress tracking
   - Flexible organization options
 
 - **Reminder System**
+
   - Smart notifications
   - Time-based and location-based reminders
   - Gentle but effective prompting
@@ -30,6 +32,7 @@ The ADHD Organizer is built with a focus on accessibility, simplicity, and effec
 ### Technical Features
 
 - **Comprehensive Authentication System**
+
   - Email/password registration and login
   - Google OAuth integration
   - Secure password recovery flow
@@ -37,6 +40,7 @@ The ADHD Organizer is built with a focus on accessibility, simplicity, and effec
   - Organized auth pages in `/app/auth` directory
 
 - **Modern Web Architecture**
+
   - Next.js App Router for optimized routing
   - Server-side rendering for performance
   - TypeScript for type safety

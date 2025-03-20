@@ -1,41 +1,35 @@
-/**
- * @module HomePage
- * @fileoverview Home page component with redirect to login
- * @since 1.0.0
- */
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 
-"use client";
+export default async function HomePage() {
+  const supabase = await createClient();
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/contexts/AuthContext";
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-/**
- * Home page component
- * @component
- */
-export default function HomePage() {
-  const router = useRouter();
-  const { user, loading } = useAuth();
-
-  useEffect(() => {
-    if (!loading) {
-      if (user) {
-        router.push("/dashboard");
-      } else {
-        router.push("/auth/login");
-      }
-    }
-  }, [user, loading, router]);
+  if (user) {
+    redirect("/dashboard");
+  }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="flex flex-col items-center gap-4">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-        <div className="text-xl font-medium text-muted-foreground">
-          Loading...
+    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:px-20">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          ADHD Organizer
+        </h1>
+        <p className="mt-6 text-lg text-muted-foreground">
+          A modern web application for ADHD organization and task management
+        </p>
+        <div className="mt-10">
+          <a
+            href="/login"
+            className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/80"
+          >
+            Get started
+          </a>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

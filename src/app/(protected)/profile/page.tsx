@@ -6,10 +6,7 @@
 
 "use client";
 
-import { useAuth } from "@/contexts/AuthContext";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { Loading } from "@/components/ui/loading";
+import { User } from "@supabase/supabase-js";
 import {
   Card,
   CardContent,
@@ -21,30 +18,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProfileForm from "@/components/profile/profile-form";
 import PasswordForm from "@/components/profile/password-form";
 import AvatarUpload from "@/components/profile/avatar-upload";
-import { User } from "@supabase/supabase-js";
+import { withProtectedRoute } from "@/components/auth/protected-route";
 
-export default function ProfilePage() {
-  const { user, loading } = useAuth();
-  const router = useRouter();
+interface ProfilePageProps {
+  user: User;
+}
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push("/auth/login");
-    }
-  }, [user, loading, router]);
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (!user) {
-    return null;
-  }
-
-  const authenticatedUser: User = user;
-
+function ProfilePage({ user }: ProfilePageProps) {
   return (
-    <Card className="mx-auto max-w-4xl">
+    <Card>
       <CardHeader>
         <CardTitle>Profile Settings</CardTitle>
         <CardDescription>
@@ -59,16 +41,18 @@ export default function ProfilePage() {
             <TabsTrigger value="avatar">Avatar</TabsTrigger>
           </TabsList>
           <TabsContent value="profile">
-            <ProfileForm user={authenticatedUser} />
+            <ProfileForm user={user} />
           </TabsContent>
           <TabsContent value="password">
             <PasswordForm />
           </TabsContent>
           <TabsContent value="avatar">
-            <AvatarUpload user={authenticatedUser} />
+            <AvatarUpload user={user} />
           </TabsContent>
         </Tabs>
       </CardContent>
     </Card>
   );
 }
+
+export default withProtectedRoute(ProfilePage);
