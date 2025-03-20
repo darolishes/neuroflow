@@ -13,11 +13,13 @@ The ADHD Organizer is built with a focus on accessibility, simplicity, and effec
 ### Core Features
 
 - **Task Management System**
+
   - Create, categorize, and prioritize tasks
   - Visual progress tracking
   - Flexible organization options
 
 - **Reminder System**
+
   - Smart notifications
   - Time-based and location-based reminders
   - Gentle but effective prompting
@@ -30,13 +32,17 @@ The ADHD Organizer is built with a focus on accessibility, simplicity, and effec
 ### Technical Features
 
 - **Comprehensive Authentication System**
+
   - Email/password registration and login
   - Google OAuth integration
   - Secure password recovery flow
   - Protected routes for authenticated content
   - Organized auth pages in `/app/auth` directory
+  - Detailed documentation in [Authentication System Documentation](./docs/authentication.md)
+  - Improvement roadmap in [Auth Roadmap](./docs/auth-roadmap.md)
 
 - **Modern Web Architecture**
+
   - Next.js App Router for optimized routing
   - Server-side rendering for performance
   - TypeScript for type safety
@@ -168,7 +174,6 @@ npm run test:coverage
 src/
 ├── app/                    # Next.js app directory
 │   ├── auth/              # Auth-related routes
-│   ├── dashboard/         # Dashboard page with:
 │   │   ├── page.tsx      # - Env variable display
 │   │   └── components/    # - Supabase data visualization
 │   │       ├── ConfigCard.tsx  # App configuration display
